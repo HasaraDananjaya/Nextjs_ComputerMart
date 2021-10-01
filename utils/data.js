@@ -51,10 +51,10 @@ const data = {
     {
       name: 'Laptop Type 02',
       slug: 'laptop-type-02',
-      category: 'hp',
+      category: 'laptop',
       image: '/images/laptop2.jpg',
       price: 70,
-      brand: 'Nike',
+      brand: 'hp',
       rating: 4.5,
       numReviews: 10,
       countInStock: 20,

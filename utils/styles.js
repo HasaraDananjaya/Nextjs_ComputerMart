@@ -16,13 +16,18 @@ const useStyles = makeStyles({
     flexGrow: 1,
   },
   growright: {
-      textAlign: 'right'
+    textAlign: 'right',
   },
   main: {
     minHeight: '80vh',
   },
   footer: {
+    marginTop: 10,
     textAlign: 'center',
+  },
+  section: {
+    marginTop: 10,
+    marginBottom: 10,
   },
 });
 
