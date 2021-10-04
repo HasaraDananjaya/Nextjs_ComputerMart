@@ -1,20 +1,26 @@
 import React from 'react';
+import { useContext } from 'react';
 import Head from 'next/head';
 import NextLink from 'next/link';
 import {
   AppBar,
   Container,
-  createMuiTheme,
+  createTheme,
   Link,
   Toolbar,
   ThemeProvider,
   Typography,
   CssBaseline,
+  Switch,
 } from '@material-ui/core';
 import useStyles from '../utils/styles';
+import { Store } from '../utils/Store';
+import Cookies from 'js-cookie';
 
 export default function Layout({ title, description, children }) {
-  const theme = createMuiTheme({
+  const { state, dispatch } = useContext(Store);
+  const { darkMode } = state;
+  const theme = createTheme({
     typography: {
       h1: {
         fontSize: '1.6rem',
@@ -27,20 +33,26 @@ export default function Layout({ title, description, children }) {
         margin: '1rem 0',
       },
       body1: {
-        fontWeight: "normal"
+        fontWeight: 'normal',
       },
     },
     palette: {
-      type: 'light',
+      type: darkMode ? 'dark' : 'light',
       primary: {
         main: '#FF9900',
       },
       secondary: {
         main: '#515151',
-      }, 
+      },
     },
   });
   const classes = useStyles();
+
+  const darkModeHandler = () => {
+    dispatch({ type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON' });
+    const newDarkMode = !darkMode;
+    Cookies.set('darkMode', newDarkMode ?'NO': 'OFF');
+  };
   return (
     <div>
       <Head>
@@ -59,11 +71,15 @@ export default function Layout({ title, description, children }) {
             </NextLink>
             <div className={classes.grow}>
               <div className={classes.growright}>
+                <Switch checked={darkMode} onChange={darkModeHandler}></Switch>
                 <NextLink href="/cart" passHref>
                   <Link>Cart</Link>
                 </NextLink>
                 <NextLink href="/login" passHref>
                   <Link>Login</Link>
+                </NextLink>
+                <NextLink href="/about" passHref>
+                  <Link>About</Link>
                 </NextLink>
               </div>
             </div>
