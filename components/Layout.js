@@ -110,6 +110,9 @@ export default function Layout({ title, description, children }) {
                     )}
                   </Link>
                 </NextLink>
+                <NextLink href="/about" passHref>
+                  <Link>About</Link>
+                </NextLink>
                 {userInfo ? (
                   <>
                   <Button
@@ -156,9 +159,6 @@ export default function Layout({ title, description, children }) {
                     <Link>Login</Link>
                   </NextLink>
                 )}
-                <NextLink href="/about" passHref>
-                  <Link>About</Link>
-                </NextLink>
               </div>
             </div>
           </Toolbar>
