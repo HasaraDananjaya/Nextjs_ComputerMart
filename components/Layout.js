@@ -96,6 +96,9 @@ export default function Layout({ title, description, children }) {
             <div className={classes.grow}>
               <div className={classes.growright}>
                 <Switch checked={darkMode} onChange={darkModeHandler}></Switch>
+                <NextLink href="/about" passHref>
+                  <Link>About</Link>
+                </NextLink>
                 <NextLink href="/cart" passHref>
                   <Link>
                     {cart.cartItems.length > 0 ? (
@@ -110,9 +113,7 @@ export default function Layout({ title, description, children }) {
                     )}
                   </Link>
                 </NextLink>
-                <NextLink href="/about" passHref>
-                  <Link>About</Link>
-                </NextLink>
+                
                 {userInfo ? (
                   <>
                   <Button
