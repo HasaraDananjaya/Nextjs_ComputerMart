@@ -1,17 +1,19 @@
-import { Typography } from '@material-ui/core';
 import React from 'react';
 import Layout from '../components/Layout';
-import useStyles from '../utils/styles';
+import Image from 'next/image';
 
 export default function About() {
-  const classes = useStyles();
   return (
-    <Layout title="Shipping">
-      <form className={classes.form}>
-        <Typography component="h1" variant="h1">
-          Details about the company Here
-        </Typography>
-      </form>
+    <Layout title="About">
+      <div>
+        <Image
+          src="/images/Index_Page.jpg"
+          alt=" logos of Products"
+          width={200}
+          height={200}
+          layout="responsive"
+        ></Image>
+      </div>
     </Layout>
   );
 }

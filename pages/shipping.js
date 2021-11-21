@@ -17,7 +17,7 @@ export default function Shipping() {
   return (
     <Layout title="Shipping">
       <form className={classes.form}>
-        <Typography component="h1" variant="h1">
+        <Typography component="h1" variant="h1" align="center">
           Delivery Details Here
         </Typography>
       </form>
